@@ -27,7 +27,7 @@
     "baseUrl": ".",
     "paths": {
       "#app/*": [
-        "src/app_old/*"
+        "src/app/*"
       ],
       "#__tests__": [
         "__tests__/*"

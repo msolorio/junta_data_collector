@@ -1,4 +1,4 @@
-import { add } from 'src/app_old/example.js'
+import { add } from 'src/app/example.js'
 
 describe('add', () => {
   it('adds two numbers', () => {

@@ -1,4 +1,4 @@
-import { getApiUrl } from 'src/app_old/config.js'
+import { getApiUrl } from 'src/app/config.js'
 
 describe('health endpoint', () => {
   it('returns 200 and ok', async () => {

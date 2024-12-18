@@ -29,6 +29,8 @@
   },
   "dependencies": {
     "@prisma/client": "5.8.1",
+    "@shopify/shopify-api": "^11.6.1",
+    "@versollabs/shopify-auth-express-middleware": "^1.0.6",
     "express": "^4.21.1",
     "morgan": "^1.10.0",
     "tslib": "~2.6"
