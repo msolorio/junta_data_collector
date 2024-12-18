@@ -15,3 +15,4 @@ services:
       # - .:/app
       - ./src:/app/src
       - ./__tests__:/app/__tests__
+    entrypoint: ["npm", "run", "dev"]

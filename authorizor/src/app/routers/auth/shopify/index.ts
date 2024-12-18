@@ -10,8 +10,8 @@ export const shopifyAuth = ShopifyAuth({
     scopes: scopes,
   },
   authPaths: {
-    begin: '/auth',
-    callback: '/auth/callback',
+    begin: '/auth/shopify',
+    callback: '/auth/shopify/callback',
   },
   sessionStore: MongoDbSessionStore({
     url: String(process.env.MONGODB_URI),
