@@ -1,8 +1,4 @@
-# Recopiladora Demo
-
-A demonstration of the Recopiladora data collector.
-
-## Authorizor
+# Authorizor
 
 The authorizor service accepts requests from 3rd party OAuth providers and stores the generated OAuth tokens.
 
