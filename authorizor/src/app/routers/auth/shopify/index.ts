@@ -1,12 +1,12 @@
 import { ShopifyAuth, MongoDbSessionStore } from '@versollabs/shopify-auth-express-middleware'
-import { CLIENT_ID, CLIENT_SECRET, SHOPIFY_AUTH_ENDPOINT } from '#app/config';
+import { SHOPIFY_CLIENT_ID, SHOPIFY_CLIENT_SECRET, AUTHORIZOR_ENDPOINT } from '#app/config';
 import { scopes } from './scopes';
 
 export const shopifyAuth = ShopifyAuth({
   api: {
-    apiKey: String(CLIENT_ID),
-    apiSecretKey: String(CLIENT_SECRET),
-    hostName: String(SHOPIFY_AUTH_ENDPOINT),
+    apiKey: String(SHOPIFY_CLIENT_ID),
+    apiSecretKey: String(SHOPIFY_CLIENT_SECRET),
+    hostName: String(AUTHORIZOR_ENDPOINT),
     scopes: scopes,
   },
   authPaths: {
@@ -19,4 +19,3 @@ export const shopifyAuth = ShopifyAuth({
     collectionName: 'shopify',
   })
 });
-
