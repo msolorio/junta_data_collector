@@ -3,17 +3,21 @@ const getPort = function (): number {
 }
 
 const getApiUrl = function (): string {
-  const host = process.env.API_HOST || 'localhost'
+  const host = String(process.env.API_HOST) || 'localhost'
   return `http://${host}:${getPort()}`
 }
-export const AUTHORIZOR_ENDPOINT = process.env.AUTHORIZOR_ENDPOINT
+// authorizor
+export const AUTHORIZOR_ENDPOINT = String(process.env.AUTHORIZOR_ENDPOINT)
 
-export const SHOPIFY_CLIENT_ID = process.env.SHOPIFY_CLIENT_ID
-export const SHOPIFY_CLIENT_SECRET = process.env.SHOPIFY_CLIENT_SECRET
+// shopify
+export const SHOPIFY_CLIENT_ID = String(process.env.SHOPIFY_CLIENT_ID)
+export const SHOPIFY_CLIENT_SECRET = String(process.env.SHOPIFY_CLIENT_SECRET)
 
-export const GOOGLE_ADS_CLIENT_ID = process.env.GOOGLE_ADS_CLIENT_ID
-export const GOOGLE_ADS_CLIENT_SECRET = process.env.GOOGLE_ADS_CLIENT_SECRET
+// google ads
+export const GOOGLE_ADS_CLIENT_ID = String(process.env.GOOGLE_ADS_CLIENT_ID)
+export const GOOGLE_ADS_CLIENT_SECRET = String(process.env.GOOGLE_ADS_CLIENT_SECRET)
 
-export const MONGODB_URI = process.env.MONGODB_URI
+// mongodb
+export const MONGODB_URI = String(process.env.MONGODB_URI)
 
 export { getApiUrl, getPort }

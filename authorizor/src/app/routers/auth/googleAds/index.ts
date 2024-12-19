@@ -6,7 +6,7 @@ import url from 'node:url';
 import { GOOGLE_ADS_CLIENT_ID, GOOGLE_ADS_CLIENT_SECRET, AUTHORIZOR_ENDPOINT, MONGODB_URI } from '#app/config';
 
 import { MongoClient } from 'mongodb';
-const mongoClient = new MongoClient(String(MONGODB_URI));
+const mongoClient = new MongoClient(MONGODB_URI);
 const db = mongoClient.db('access_tokens');
 const googleAdsTokenModel = db.collection('google_ads');
 
@@ -18,7 +18,7 @@ const scopes = [
 console.log('AUTHORIZOR_ENDPOINT:', AUTHORIZOR_ENDPOINT);
 console.log('GOOGLE_ADS_CLIENT_ID:', GOOGLE_ADS_CLIENT_ID);
 console.log('GOOGLE_ADS_CLIENT_SECRET:', GOOGLE_ADS_CLIENT_SECRET);
-console.log(`https://${path.join(String(AUTHORIZOR_ENDPOINT), '/auth/google-ads/oauth2callback')}`);
+console.log(`https://${path.join(AUTHORIZOR_ENDPOINT, '/auth/google-ads/oauth2callback')}`);
 
 const oauth2Client = new google.auth.OAuth2(
   // YOUR_CLIENT_ID,
@@ -27,7 +27,7 @@ const oauth2Client = new google.auth.OAuth2(
   GOOGLE_ADS_CLIENT_SECRET,
   // YOUR_REDIRECT_URL,
   'http://localhost:3001/auth/google-ads/oauth2callback'
-  // `https://${path.join(String(AUTHORIZOR_ENDPOINT), '/auth/google-ads/oauth2callback')}`
+  // `https://${path.join(AUTHORIZOR_ENDPOINT, '/auth/google-ads/oauth2callback')}`
 );
 
 const router = Router();
