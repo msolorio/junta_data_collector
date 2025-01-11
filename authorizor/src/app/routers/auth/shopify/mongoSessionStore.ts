@@ -1,12 +1,7 @@
-import { AbstractSessionStore } from '@versollabs/shopify-auth-express-middleware'
 import { MongoClient, Db, Collection } from 'mongodb';
 import { MONGODB_URI } from '#app/config'
 
-export const MongoSessionStore = () => {
-  return new _MongoSessionStore()
-}
-
-class _MongoSessionStore implements AbstractSessionStore {
+class _MongoSessionStore {
   private _mongodbClient: MongoClient
   private _db: Db
   private _shopsModel: Collection
@@ -18,9 +13,6 @@ class _MongoSessionStore implements AbstractSessionStore {
   }
 
   public async add(shopName: string, accessToken: string): Promise<void> {
-    console.log('shopName:', shopName)
-    console.log('accessToken:', accessToken)
-
     await this._mongodbClient.connect()
     await this._shopsModel.updateOne(
       { 'shopify.user_vendor_id': shopName },
@@ -28,11 +20,6 @@ class _MongoSessionStore implements AbstractSessionStore {
       { upsert: false },
     )
     await this._mongodbClient.close()
-  }
-
-  public async get(shopName: string): Promise<string | null> {
-    shopName
-    return null
   }
 
   public async getByUserId(juntaId: string): Promise<string | null> {
@@ -60,3 +47,7 @@ class _MongoSessionStore implements AbstractSessionStore {
     )
   }
 }
+
+const mongoSessionStore = new _MongoSessionStore()
+
+export { mongoSessionStore }

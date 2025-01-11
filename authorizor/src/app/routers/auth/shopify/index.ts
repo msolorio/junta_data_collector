@@ -1,7 +1,7 @@
 import { ShopifyAuth } from '@versollabs/shopify-auth-express-middleware'
 import { SHOPIFY_CLIENT_ID, SHOPIFY_CLIENT_SECRET, AUTHORIZOR_ENDPOINT } from '#app/config';
 import { scopes } from './scopes';
-import { MongoSessionStore } from './mongoSessionStore';
+import { sessionStoreAdapter } from './sessionStoreAdapter'
 
 
 export const shopifyAuth = ShopifyAuth({
@@ -15,5 +15,5 @@ export const shopifyAuth = ShopifyAuth({
     begin: '/auth/shopify/begin',
     callback: '/auth/shopify/callback',
   },
-  sessionStore: MongoSessionStore(),
+  sessionStore: sessionStoreAdapter
 });
