@@ -7,8 +7,8 @@ export type Shop = {
 export type CollectionName = 'shopify' | 'google-ads';
 
 export interface AbstractSessionStore {
-  add(shop: Shop, vendor: CollectionName): Promise<void>
-  get(shopName: string, vendor: CollectionName): Promise<Shop | null>
+  add(_shop: Shop, _vendor: CollectionName): Promise<void>
+  get(_shopName: string, _vendor: CollectionName): Promise<Shop | null>
 }
 
 export type MongoDbSessionStoreOptions = {

@@ -1,0 +1,12 @@
+import { getApiUrl } from 'src/app/config.js'
+
+describe('health endpoint', () => {
+  it('returns 200 and ok', async () => {
+    console.log('getApiUrl():', getApiUrl())
+
+    expect(2).toBe(3)
+    // const response = await fetch(`${getApiUrl()}/health`)
+    // expect(response.status).toBe(200)
+    // expect(response.statusText).toBe('OK')
+  })
+})

@@ -7,6 +7,7 @@ import { getApiUrl, getPort } from '#app/config';
 import { shopifyAuth } from '#app/routers/auth/shopify/index.js';
 import { router as googleAdsRouter } from '#app/routers/auth/googleAds';
 import { router as tokenRouter } from '#app/routers/token';
+import { router as userVendorIdRouter } from '#app/routers/userVendorId';
 
 declare module 'express-session' {
   interface SessionData {
@@ -28,6 +29,7 @@ app.use(session({
 app.use(shopifyAuth.router());
 app.use(googleAdsRouter);
 
+app.use('/user-vendor-id', userVendorIdRouter);
 app.use('/token', tokenRouter);
 
 app.get('/health', (_, res) => {

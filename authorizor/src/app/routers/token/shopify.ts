@@ -1,13 +1,14 @@
 import { Router } from 'express';
-import { shopifyAuth } from '#app/routers/auth/shopify/index.js';
+import { MongoSessionStore } from '#app/routers/auth/shopify/mongoSessionStore.js';
 
 const router = Router();
 
-// /token/shopify/:store
-router.get('/:store', async (req, res) => {
-  const storeName = req.params.store;
-  const accessToken = await shopifyAuth.getAccessToken(storeName);
+// /token/shopify/:junta_id
+router.get('/:junta_id', async (req, res) => {
+  const juntaId = req.params.junta_id;
+  const accessToken = await MongoSessionStore().getByUserId(juntaId);
+
   return res.status(200).send({ accessToken });
-});
+})
 
 export { router };

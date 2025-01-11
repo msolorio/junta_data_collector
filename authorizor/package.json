@@ -30,7 +30,7 @@
   "dependencies": {
     "@prisma/client": "5.8.1",
     "@shopify/shopify-api": "^11.6.1",
-    "@versollabs/shopify-auth-express-middleware": "^1.0.6",
+    "@versollabs/shopify-auth-express-middleware": "^1.0.9",
     "express": "^4.21.1",
     "express-session": "^1.18.1",
     "googleapis": "^144.0.0",

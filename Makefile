@@ -6,13 +6,13 @@ build:
 	docker compose build
 
 up:
-	docker compose up -d app
+	docker compose up -d
 
 dev:
-	docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d app
+	docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d authorizor
 
 test:
-	docker compose run --rm --no-deps --entrypoint='npm test' app
+	docker compose run --rm --no-deps --entrypoint='npm test' authorizor
 
 down:
 	docker compose down
