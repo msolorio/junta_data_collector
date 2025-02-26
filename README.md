@@ -1,5 +1,15 @@
 # Recopiladora Demo
 
-A demo implementation of the Recopiladora data collector.
+The Recopiladora data collector managing OAuth and data collection.
 
-![Recopiladora system diagram](./readme_assets/system_diagram.png)
+## Requirements
+- Docker + Docker Compose (^v3.8)
+
+## Usage
+
+```bash
+make up
+```
+
+
+![Recopiladora system diagram](./readme_assets/architecture_diagram.png)
