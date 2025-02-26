@@ -1,6 +1,18 @@
 import { MongoClient, Db, Collection } from 'mongodb';
 import { MONGODB_URI } from '#app/config'
 
+type User = {
+  junta_id: string
+  shopify?: {
+    user_vendor_id?: string
+    access_token?: string
+  }
+  google_ads?: {
+    user_vendor_id?: string
+    refresh_token?: string
+  }
+}
+
 class _MongoSessionStore {
   private _mongodbClient: MongoClient
   private _db: Db
@@ -22,14 +34,6 @@ class _MongoSessionStore {
     await this._mongodbClient.close()
   }
 
-  public async getByUserId(juntaId: string): Promise<string | null> {
-    await this._mongodbClient.connect()
-    const result = await this._shopsModel.findOne({ 'junta_id': juntaId })
-    await this._mongodbClient.close()
-
-    return result && result.shopify && result.shopify.access_token || null as unknown as string | null
-  }
-
   public async addUserVendorId({
     vendor,
     userVendorId,
@@ -45,6 +49,14 @@ class _MongoSessionStore {
       { $set: { [`${vendor}.user_vendor_id`]: userVendorId } },
       { upsert: false }
     )
+  }
+
+  public async getUserAuthByJuntaId(juntaId: string): Promise<User | null> {
+    await this._mongodbClient.connect()
+    const result = await this._shopsModel.findOne({ 'junta_id': juntaId })
+    await this._mongodbClient.close()
+
+    return (result || null) as unknown as User | null
   }
 }
 
