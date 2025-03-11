@@ -1,6 +1,6 @@
-# Recopiladora Demo
+# Junta Data Collector
 
-The Recopiladora data collector managing OAuth and data collection.
+The Junta Data collector managing OAuth and data collection.
 
 ## Requirements
 - Docker + Docker Compose (^v3.8)
